@@ -1,0 +1,52 @@
+version: '3'
+
+networks:
+  paymentmicroservice:
+
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: paymentmicoservice-nginx
+    ports:
+      - "8088:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+      - mysql
+    networks:
+      - paymentmicroservice
+
+
+  mysql:
+    image: mysql:5.7.22
+    container_name: paymentmicoservice-mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "4306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: authdb
+      MYSQL_USER: kwafodev
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - paymentmicroservice
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paymentmicoservice-php
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - paymentmicroservice
