@@ -8,6 +8,6 @@
 
 $router->group (['prefix' => '/api/payment/v1/token'], function () use ($router) {
 
-    $router->get('getAccessToken', ['uses' => 'TokenController@getAccessToken']);
+    $router->get ('getAccessToken', ['uses' => 'TokenController@getAccessToken']);
 
 });
