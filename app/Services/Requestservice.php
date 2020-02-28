@@ -29,7 +29,7 @@ class Requestservice
         try {
             $response = $this->client->request ($httpVerb, $url, $body);
         } catch (\Exception $e) {
-            return [];
+            return $e;
         }
 
         return $this->response_handler ($response->getBody ()->getContents ());
@@ -37,10 +37,10 @@ class Requestservice
 
     public function response_handler ($response)
     {
-        if ( $response ) {
-            return json_decode ($response);
-        }
+//        if ( $response ) {
+//            return $response;
+//        }
 
-        return [];
+        return $response;
     }
 }

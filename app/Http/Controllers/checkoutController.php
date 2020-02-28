@@ -27,18 +27,19 @@ class CheckoutController extends Controller
      */
     public function __construct ()
     {
-        $this->checkoutservice = new Checkoutservice(new Order('CAPTURE'), new Amount('USD', '1.0'), new Purchaseunit('PUHF'));
+        $this->checkoutservice = new Checkoutservice(new Order('CAPTURE'), new Amount('USD', '0.01'), new Purchaseunit('PUHF'));
         $this->requestservice =new Requestservice();
     }
 
 
     public function createOrder ()
     {
-        return $this->requestservice->endpointRequest ('https://api.sandbox.paypal.com/v2/checkout/orders', 'POST', [
+        return $this->requestservice->endpointRequest ('https://api.sandbox.paypal.com/v2/checkout/orders', 'POST',
+            [
                 'json'    => $this->checkoutservice->getOrder (),
                 'headers' => [
-                    'Content-Type'  => env('APP_CONTENTTYPE'),
-                    'Authorization' => 'Bearer' . env('APP_TOKEN')
+//                    'Content-Type'  => env('APP_CONTENTTYPE',null),
+                    'Authorization' => 'Bearer A21AAHkdRCbhLVf5jymC7JAV-XdFlD-LvjW6l582j8Aao63k76ZZ2VwR1lQGVX8AmLFUZtexaDOopgV4Mk21YA3FZnRECkMKw'
                 ]
             ]);
 
@@ -49,21 +50,22 @@ class CheckoutController extends Controller
         return $this->requestservice->endpointRequest ('https://api.sandbox.paypal.com/v2/checkout/orders/'.$id,'GET',[
             'json'    => '',
             'headers' => [
-                'Content-Type'  => env('APP_CONTENTTYPE'),
-                'Authorization' => 'Bearer' . env('APP_TOKEN')
+                'Content-Type'  => env('APP_CONTENT_TYPE',null),
+                'Authorization' => 'Bearer ' . env('APP_TOKEN',null)
             ]
         ]);
     }
 
-    public function authorizePayment (Request $request)
+    public function authorizePayment ($id)
     {
-        return $this->requestservice->endpointRequest ('https://api.sandbox.paypal.com/v2/checkout/orders/91W44595WJ189735G/capture','POST',[
-            'json'    => '',
-            'headers' => [
-                'Content-Type'  => env('APP_CONTENTTYPE'),
-                'Authorization' => 'Bearer' . env('APP_TOKEN')
-            ]
-        ]);
+        return $this->requestservice->endpointRequest ('https://api.sandbox.paypal.com/v2/checkout/orders/'.$id.'/capture','POST',
+            [
+
+                'headers' => [
+                   'Content-Type'  => env('APP_CONTENT_TYPE',null),
+                    'Authorization' => 'Bearer A21AAHkdRCbhLVf5jymC7JAV-XdFlD-LvjW6l582j8Aao63k76ZZ2VwR1lQGVX8AmLFUZtexaDOopgV4Mk21YA3FZnRECkMKw'
+                ]
+            ]);
     }
 
 

@@ -12,6 +12,6 @@
 $router->group (['prefix' => '/api/payment/v1/checkout'], function () use ($router) {
 
     $router->get('createOrder', ['uses' => 'CheckoutController@createOrder']);
-    $router->get('findOrderDetails', ['uses' => 'CheckoutController@findOrderDetails']);
-    $router->get('authorizePayment', ['uses' => 'CheckoutController@authorizePayment']);
+    $router->get('findOrderDetails/{id}', ['uses' => 'CheckoutController@findOrderDetails']);
+    $router->get('authorizePayment/{id}', ['uses' => 'CheckoutController@authorizePayment']);
 });

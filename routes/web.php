@@ -12,3 +12,5 @@
 */
 
 
+include_once 'checkoutRoute.php';
+include_once 'tokenRoute.php';
