@@ -1,11 +1,11 @@
 
 ## Architectural Diagrams
 
-![alt text](https://github.com/nanakwafo/authmicroservice/blob/master/images/icon1.png "Logo Title Text 1")
+![alt text](https://github.com/nanakwafo/Payment-As-a-Microservice-/blob/master/images/icon1.png "Logo Title Text 1")
 
 
 ## Api Documentation
-Documentation for this can be found on the [Auth as a microservice](https://documenter.getpostman.com/view/1213803/SzKPWhH9?version=latest)
+Documentation for this can be found on the [Payment as a microservice](https://documenter.getpostman.com/view/1213803/SzKPWhH9?version=latest)
 
 ## Setup Instruction
 
