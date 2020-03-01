@@ -14,3 +14,4 @@
 
 include_once 'checkoutRoute.php';
 include_once 'tokenRoute.php';
+include_once 'PaymentRoute.php';

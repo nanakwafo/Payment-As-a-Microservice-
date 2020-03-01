@@ -39,7 +39,7 @@ class CheckoutController extends Controller
                 'json'    => $this->checkoutservice->getOrder (),
                 'headers' => [
 //                    'Content-Type'  => env('APP_CONTENTTYPE',null),
-                    'Authorization' => 'Bearer A21AAHkdRCbhLVf5jymC7JAV-XdFlD-LvjW6l582j8Aao63k76ZZ2VwR1lQGVX8AmLFUZtexaDOopgV4Mk21YA3FZnRECkMKw'
+                    'Authorization' => 'Bearer A21AAGEdfr_n2qltJZT3xnwBg-uCzjA6SsDG7AfC6uogUOsbLZxgE7Zr_W-NE0XiS5i6lL4RReYh8stjq_ZLBKyrgPZ32aemg'
                 ]
             ]);
 
