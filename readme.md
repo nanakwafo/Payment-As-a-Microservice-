@@ -5,7 +5,7 @@
 
 
 ## Api Documentation
-Documentation for this can be found on the [Payment as a microservice](https://documenter.getpostman.com/view/1213803/SzKPWhH9?version=latest)
+Documentation for this can be found on the [Payment as a microservice](https://web.postman.co/collections/1213803-65f73cb5-a1a4-4ace-912f-7110c16bb4f2?version=latest&workspace=fd30c911-81a2-4ce0-b2ec-6251be180807)
 
 ## Setup Instruction
 
@@ -14,5 +14,7 @@ Documentation for this can be found on the [Payment as a microservice](https://d
 1. cd into the project such that you are in the root directory of the dockerfile on terminal
 1. execute this on the terminal
   ` docker-compose build && docker-compose up -d`
+
+  The various endpoint can be found in the route folderof the project
 
 NB.This will spin up 3 containers
